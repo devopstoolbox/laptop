@@ -1,0 +1,11 @@
+---
+# Configure laptop
+
+- name: service is enabled and started
+  service:
+    name: "{{ item }}"
+    enabled: true
+    state: started
+  become: true
+  loop: "{{ laptop_services_enable }}"
+  when: laptop_enable_service

@@ -1,0 +1,13 @@
+---
+# Template configuration files for laptop
+
+- name: Set SELinux booleans
+  seboolean:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+    persistent: "{{ item.persistent | default('false') }}"
+  loop: "{{ laptop_selinux_booleans }}"
+  when:
+    - ansible_selinux.status == "enabled"
+    - laptop_enable_selinux
+  become: true

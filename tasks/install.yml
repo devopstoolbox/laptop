@@ -1,0 +1,27 @@
+---
+# Install laptop packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ laptop_packages_remove }}"
+    state: absent
+  become: true
+  when: laptop_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ laptop_packages_repos }}"
+    state: "{{ laptop_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ laptop_packages_prereq }}"
+    state: "{{ laptop_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ laptop_packages_install }}"
+    state: "{{ laptop_packages_state }}"
+  become: true

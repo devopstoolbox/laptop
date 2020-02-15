@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+laptop_repos_create: "{{ _laptop_repos_create['all']
+  | union ( _laptop_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+laptop_repos_download: "{{ _laptop_repos_download['all']
+  | union ( _laptop_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+laptop_templates_copy: "{{ _laptop_templates_copy['all']
+  | union ( _laptop_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+laptop_services_enable: "{{ _laptop_services_enable['all']
+  | union ( _laptop_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+laptop_selinux_enable: "{{ _laptop_selinux_enable['all']
+  | union ( _laptop_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+laptop_packages_remove: "{{ _laptop_packages_remove['all']
+  | union ( _laptop_packages_remove[my_os]
+  | default([]) ) }}"
+laptop_packages_repos: "{{ _laptop_packages_repos['all']
+  | union ( _laptop_packages_repos[my_os]
+  | default([]) ) }}"
+laptop_packages_prereq: "{{ _laptop_packages_prereq['all']
+  | union ( _laptop_packages_prereq[my_os]
+  | default([]) ) }}"
+laptop_packages_install: "{{ _laptop_packages_install['all']
+  | union ( _laptop_packages_install[my_os]
+  | default([]) ) }}"

@@ -1,0 +1,19 @@
+---
+# defaults file for laptop
+
+laptop_packages_state: present
+laptop_remove_packages: true
+laptop_enable_service: true
+laptop_enable_selinux: true
+laptop_copy_templates: true
+laptop_firewall_configure: true
+laptop_firewall_rules:
+  - service: ssh
+  - port: 3389
+laptop_users:
+  - user: devops
+    group: docker
+laptop_selinux_booleans:
+  - name: ftp_home_dir
+    state: true
+    persistent: true
