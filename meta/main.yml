@@ -27,4 +27,24 @@ galaxy_info:
     - centos
     - fedora
 
-# dependencies: []
+dependencies:
+  - crivetimihai.anaconda
+  - crivetimihai.apache
+  - crivetimihai.atom
+  - crivetimihai.bootstrap
+  - crivetimihai.cockpit
+  - crivetimihai.docker
+  - crivetimihai.dotfiles
+  - crivetimihai.flatpak
+  - crivetimihai.haproxy
+  - crivetimihai.hashicorp
+  - crivetimihai.jenkins
+  - crivetimihai.kvm
+  - crivetimihai.localbin
+  - crivetimihai.pip
+  - crivetimihai.podman
+  - crivetimihai.users
+  - crivetimihai.virtualbox
+  - crivetimihai.vscode
+  - crivetimihai.vsftpd
+  - crivetimihai.xrdp
